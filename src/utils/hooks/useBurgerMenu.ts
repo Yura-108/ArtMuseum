@@ -12,27 +12,27 @@ const useBurgerMenu = () => {
 
   const handleClickOutside = useCallback((e: MouseEvent) => {
     const target = e.target as HTMLElement;
-    if (!target.closest(".burgerMenu") && !target.closest(".burgerButton")) {
+    if (!target.closest('.burgerMenu') && !target.closest('.burgerButton')) {
       closeMenu();
     }
   }, []);
 
   useEffect(() => {
     if (isOpen) {
-      document.addEventListener("keydown", handleKeyDown);
-      document.addEventListener("click", handleClickOutside);
+      document.addEventListener('keydown', handleKeyDown);
+      document.addEventListener('click', handleClickOutside);
     } else {
-      document.removeEventListener("keydown", handleKeyDown);
-      document.removeEventListener("click", handleClickOutside);
+      document.removeEventListener('keydown', handleKeyDown);
+      document.removeEventListener('click', handleClickOutside);
     }
 
     return () => {
-      document.removeEventListener("keydown", handleKeyDown);
-      document.removeEventListener("click", handleClickOutside);
+      document.removeEventListener('keydown', handleKeyDown);
+      document.removeEventListener('click', handleClickOutside);
     };
   }, [isOpen, handleKeyDown, handleClickOutside]);
 
   return { isOpen, openMenu, closeMenu };
-}
+};
 
 export default useBurgerMenu;

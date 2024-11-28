@@ -1,6 +1,6 @@
 import { render, screen, fireEvent } from '@testing-library/react';
 import Pagination from '../../components/Pagination/Pagination.tsx';
-import '@testing-library/jest-dom'
+import '@testing-library/jest-dom';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 
 const queryClient = new QueryClient();
@@ -24,19 +24,19 @@ describe('Pagination Component', () => {
 
   it('renders pagination with initial pages', () => {
     render(
-      <QueryClientProvider client={queryClient} >
+      <QueryClientProvider client={queryClient}>
         <Pagination activePage={0} setActivePage={mockSetActivePage} />
-      </QueryClientProvider>
+      </QueryClientProvider>,
     );
     // Проверяем, что первая страница отображается
     expect(screen.getByText('1')).toBeInTheDocument();
   });
 
-  it('calls setActivePage with correct page number on page click', async() => {
+  it('calls setActivePage with correct page number on page click', async () => {
     render(
-      <QueryClientProvider client={queryClient} >
+      <QueryClientProvider client={queryClient}>
         <Pagination activePage={0} setActivePage={mockSetActivePage} />
-      </QueryClientProvider>
+      </QueryClientProvider>,
     );
 
     const secondPage = await screen.findByText('2');
@@ -46,12 +46,11 @@ describe('Pagination Component', () => {
     expect(mockSetActivePage).toHaveBeenCalledWith(1);
   });
 
-
   it('disables "prev" when on the first page', () => {
     render(
-      <QueryClientProvider client={queryClient} >
+      <QueryClientProvider client={queryClient}>
         <Pagination activePage={0} setActivePage={mockSetActivePage} />
-      </QueryClientProvider>
+      </QueryClientProvider>,
     );
     // Проверяем, что кнопка "Prev" недоступна
     const prevButton = screen.queryByAltText('CombinedShapePrev');
@@ -62,7 +61,7 @@ describe('Pagination Component', () => {
     render(
       <QueryClientProvider client={queryClient}>
         <Pagination activePage={0} setActivePage={mockSetActivePage} />
-      </QueryClientProvider>
+      </QueryClientProvider>,
     );
 
     // Кнопка "Next"
@@ -78,5 +77,4 @@ describe('Pagination Component', () => {
     const newRangePage = screen.getByText('5'); // Первая страница следующего диапазона
     expect(newRangePage).toBeInTheDocument();
   });
-
 });

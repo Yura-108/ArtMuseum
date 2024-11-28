@@ -28,7 +28,7 @@ describe('Card Component', () => {
     render(
       <Router>
         <Card artwork={mockArtwork} />
-      </Router>
+      </Router>,
     );
 
     // Проверяем, что изображение рендерится с правильным src
@@ -44,7 +44,7 @@ describe('Card Component', () => {
     render(
       <Router>
         <Card artwork={mockArtwork} />
-      </Router>
+      </Router>,
     );
 
     const link = screen.getByRole('link');
@@ -55,7 +55,7 @@ describe('Card Component', () => {
     render(
       <Router>
         <Card artwork={mockArtwork} />
-      </Router>
+      </Router>,
     );
 
     // Симулируем ошибку при загрузке изображения
@@ -70,7 +70,7 @@ describe('Card Component', () => {
     render(
       <Router>
         <Card artwork={mockArtwork} />
-      </Router>
+      </Router>,
     );
 
     // Проверяем, что компонент CardInfo получил правильные пропсы
