@@ -1,0 +1,16 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+#root {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  flex-direction: column;
+  background: #FAFAFA;
+  overflow-x: hidden;
+}
+a {
+  text-decoration: none;
+}
