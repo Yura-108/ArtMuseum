@@ -1,0 +1,55 @@
+.containerSmallCards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); // 3 колонки по умолчанию
+  gap: 16px;
+
+  .card {
+    max-width: 416px;
+    max-height: 130px;
+    padding: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .backgroundImage {
+      width: 80px;
+      height: 80px;
+    }
+
+    .info {
+      align-items: center;
+      width: calc(100% - 96px);
+    }
+  }
+
+  @media (max-width: 1280px) {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+
+    .card {
+      max-width: 350px;
+      .backgroundImage {
+        width: 80px;
+        height: 80px;
+      }
+    }
+  }
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+
+    .card {
+      max-height: 170px;
+      padding: 0;
+      .backgroundImage {
+        width: 78px;
+        height: 78px;
+      }
+      .info {
+        h5 {
+          margin: 0;
+        }
+      }
+    }
+  }
+}
