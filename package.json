@@ -1,0 +1,8 @@
+{
+  "name": "ArtMuseum",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/Yura-108/ArtMuseum.git",
+  "author": "Yury Poddubny <70597955+Yura-108@users.noreply.github.com>",
+  "license": "MIT"
+}
