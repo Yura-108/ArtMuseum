@@ -1,7 +1,9 @@
+@import "@styles/_mixins.scss";
+@import "@styles/_variables.scss";
+
 .artwork {
-  max-width: 1280px;
-  display: flex;
-  justify-content: space-between;
+  max-width: $width-main-container;
+  @include flex-space-between;
   img {
     width: 50%;
     height: auto;
@@ -13,48 +15,33 @@
     text-align: start;
     padding: 0 5%;
     h2 {
-      color: rgba(57, 57, 57, 1);
-      font-family: 'Lexend Deca', sans-serif;
-      font-weight: 400;
-      font-size: 32px;
-      line-height: 40px;
+      color: $color-text-grey;
+      @include font-style('Lexend Deca', 400, 32px, 40px);
       margin-bottom: 32px;
     }
     h4 {
-      color: rgba(224, 164, 73, 1);
-      font-family: 'Lexend Deca', sans-serif;
-      font-weight: 400;
-      font-size: 24px;
-      line-height: 30px;
+      color: $color-text-orange;
+      @include font-style('Lexend Deca', 300, 24px, 30px);
       margin-bottom: 16px;
     }
     h5 {
-      color: rgba(57, 57, 57, 1);
-      font-family: 'Lexend Deca', sans-serif;
-      font-weight: 700;
-      font-size: 16px;
-      line-height: 20px;
+      color: $color-text-grey;
+      @include font-style('Lexend Deca', 700, 16px, 20px);
     }
     h6 {
-      color: rgba(224, 164, 73, 1);
-      font-family: 'Lexend Deca', sans-serif;
-      font-weight: 400;
-      font-size: 16px;
-      line-height: 20px;
+      color: $color-text-orange;
+      @include font-style('Lexend Deca', 400, 16px, 20px);
       margin-top: 16px;
     }
     span {
-      color: rgba(57, 57, 57, 1);
+      color: $color-text-grey;
     }
     .on_loan_display {
-      color: rgba(57, 57, 57, 1);
-      font-family: 'Lexend Deca', sans-serif;
-      font-weight: 400;
-      font-size: 16px;
-      line-height: 20px;
+      color: $color-text-grey;
+      @include font-style('Lexend Deca', 400, 16px, 20px);
     }
   }
-  @media (max-width: 1280px) {
+  @media (max-width: $width-main-container) {
     width: 100%;
     flex-direction: column;
     align-items: center;
@@ -79,12 +66,11 @@
       }
       h6 {
         font-size: 14px;
-
       }
     }
   }
 
-  @media (max-width: 768px) {
+  @media (max-width: $width-main-container-small) {
     .text {
       padding: 0;
       h2 {
@@ -101,7 +87,6 @@
       }
       h6 {
         font-size: 12px;
-
       }
       .on_loan_display {
         font-size: 12px;

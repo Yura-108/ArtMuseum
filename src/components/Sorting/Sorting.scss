@@ -1,3 +1,6 @@
+@import "@styles/_mixins.scss";
+@import "@styles/_variables.scss";
+
 .sorting {
   width: 100%;
   display: flex;
@@ -5,24 +8,18 @@
   justify-content: flex-end;
   padding: 10px;
   span {
-    font-family: 'Lexend Deca', sans-serif;
-    font-weight: 400;
-    font-size: 18px;
-    line-height: 24px;
-    color: rgba(57, 57, 57, 1);
+    @include font-style('Lexend Deca', 400, 18px, 24px);
+    color: $color-text-grey;
   }
   select {
     background: transparent;
     outline: none;
-    font-family: 'Lexend Deca', sans-serif;
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 24px;
-    color: rgba(57, 57, 57, 1);
+    @include font-style('Lexend Deca', 400, 16px, 24px);
+    color: $color-text-grey;
     padding: 5px;
     margin-left: 5px;
   }
-  @media (max-width: 1280px) {
+  @media (max-width: $width-main-container) {
     justify-content: center;
   }
 }

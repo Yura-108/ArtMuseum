@@ -1,6 +1,6 @@
 import React from 'react';
 import './Sorting.scss';
-import { SortMethod } from '../../type/types.ts';
+import { SortMethod } from '@types/SortMethod.ts';
 
 interface Props {
   setSortMethod: (method: SortMethod) => void;

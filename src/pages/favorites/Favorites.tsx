@@ -1,15 +1,14 @@
 import React from 'react';
-import './Favorites.scss';
-import { useFavoritesContext } from '@store/FavoritesContext.tsx';
-import { getArtWorks } from '@utils/APIFunctions.ts';
+import favoriteIcon from '@assets/images/favoriteIcon.svg';
 import ContainerSmallCards from '@components/ContainerSmallCards/ContainerSmallCard.tsx';
-import { useQuery } from '@tanstack/react-query';
-import SmallCardContainerSkeleton from '@components/Skeletons/SmallCardContainerSkeleton.tsx';
 import ErrorMessage from '@components/ErrorMessage/ErrorMessage.tsx';
-import Title from '@components/Title/Title.tsx';
-import favoriteIcon from '@images/favoriteIcon.svg';
-import SectionTitle from '@components/SectionTitle/SectionTitle.tsx';
 import Message from '@components/Message/Message.tsx';
+import SectionTitle from '@components/SectionTitle/SectionTitle.tsx';
+import SmallCardContainerSkeleton from '@components/Skeletons/SmallCardContainerSkeleton.tsx';
+import Title from '@components/Title/Title.tsx';
+import { useFavoritesContext } from '@store/FavoritesContext.tsx';
+import { useQuery } from '@tanstack/react-query';
+import { getArtWorks } from '@utils/API/APIFunctions.ts';
 
 const Favorites: React.FC = () => {
   const { favorites } = useFavoritesContext();

@@ -1,9 +1,9 @@
-import { useEffect, useState } from 'react';
+import { FAVORITES_STORAGE_KEY } from '@constants/storageKeys.ts';
 import {
   getFromSessionStorage,
   setToSessionStorage,
 } from '../sessionStorageHelpers.ts';
-import { FAVORITES_STORAGE_KEY } from '../../constants/storageKeys.ts';
+import { useEffect, useState } from 'react';
 
 export const useFavorites = () => {
   const [favorites, setFavorites] = useState<number[]>(() =>

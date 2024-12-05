@@ -1,7 +1,9 @@
+@import "@styles/mixins";
+@import "@styles/variables";
+
 .containerCards {
-  width: 1280px;
-  display: flex;
-  justify-content: space-between;
+  width: $width-main-container;
+  @include flex-space-between;
   .skeletonCard {
     width: 387px;
     height: 514px;
@@ -23,8 +25,7 @@
     left: 50%;
     bottom: 0;
     transform: translateX(-50%);
-    display: flex;
-    justify-content: space-between;
+    @include flex-space-between;
     padding: 32px 24px;
 
     .text {
@@ -33,9 +34,7 @@
     }
   }
   @media (max-width: 1280px) {
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+   @include flex-center-column;
     .card {
       height: auto;
       .backgroundImage {

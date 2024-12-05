@@ -1,27 +1,23 @@
+@import "@styles/_mixins.scss";
+@import "@styles/_variables.scss";
+
 .containerTitle {
   text-align: center;
   width: 100%;
-  margin-top: 120px;
+  margin-top: $spacing-medium;
   margin-bottom: 40px;
   h2 {
-    color: rgba(57, 57, 57, 1);
-    font-family: 'Lexend Deca', sans-serif;
-    font-weight: 400;
-    font-size: 32px;
-    line-height: 40px;
+    color: $color-text-grey;
+    @include font-style('Lexend Deca', 400, 32px, 40px);
   }
   h4 {
-    color: rgba(224, 164, 73, 1);
-    font-family: 'Lexend Deca', sans-serif;
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 20px;
+    color: $color-text-orange;
+    @include font-style('Lexend Deca', 400, 16px, 20px);
   }
-  @media (max-width: 1280px) {
+  @media (max-width: $width-main-container) {
     margin: 50px 0 20px 0;
     h2 {
-      font-size: 24px;
-      line-height: 40px;
+      @include font-style('Lexend Deca', 400, 24px, 40px);
     }
   }
 }

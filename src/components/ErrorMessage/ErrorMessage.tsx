@@ -1,11 +1,10 @@
 import React from 'react';
 import './ErrorMessage.scss';
+import { ErrorProps } from '@types/componentsPropsTypes.ts';
 
-interface Props {
-  children: string;
-}
 
-const ErrorMessage: React.FC<Props> = ({ children }) => {
+
+const ErrorMessage: React.FC<ErrorProps> = ({ children }) => {
   return <h2 className={'errorMessage'}>{children}</h2>;
 };
 

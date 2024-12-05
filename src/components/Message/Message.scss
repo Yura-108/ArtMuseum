@@ -1,16 +1,14 @@
+@import "@styles/_mixins.scss";
+@import "@styles/_variables.scss";
+
 .message {
-  color: rgb(57, 57, 57);
-  font-family: 'Lexend Deca', sans-serif;
-  font-weight: 400;
-  font-size: 32px;
-  line-height: 40px;
-  @media (max-width: 1024px) {
-    font-size: 24px;
-    line-height: 24px;
+  color: $color-text-grey;
+  @include font-style('Lexend Deca', 400, 32px, 40px);
+  @media (max-width: $width-main-container) {
+    @include font-style('Lexend Deca', 400, 24px, 24px);
   }
 
-  @media (max-width: 768px) {
-    font-size: 16px;
-    line-height: 16px;
+  @media (max-width: $width-main-container-small) {
+    @include font-style('Lexend Deca', 400, 16px, 16px);
   }
 }

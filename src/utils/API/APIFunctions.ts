@@ -2,14 +2,15 @@ import {
   ARTWORKS_ID_TEMPLATE,
   ARTWORKS_PARAMS,
   SEARCH_URL,
-} from '../constants/API.ts';
+} from '@constants/API.ts';
+import { MAX_PAGE_PAGINATION } from '@constants/nums.ts';
 import {
   artWorkAndPaginationSchema,
   artWorkDataSchema,
   paginationDataSchema,
   searchAndPaginationSchema,
-} from './API/APIValidator.ts';
-import { MAX_PAGE_PAGINATION } from '../constants/nums.ts';
+} from './APIValidator.ts';
+import { Artwork } from '@utils/artworkSchema.ts';
 
 export const getPage = async ({
   page,
@@ -46,12 +47,12 @@ export const getArtWork = async (id: number) => {
   return artWork.data.data;
 };
 
-export const getArtWorks = async (ids: number[]) => {
+export const getArtWorks = async (ids: number[]): Promise<Artwork[]> => {
   const artWorksPromise = ids.map((id) => getArtWork(id));
-  const successfulResults: any[] = [];
-  const failedResults: any[] = [];
+  const successfulResults: Artwork[] = [];
+  const failedResults: unknown[] = [];
 
-  const results = await Promise.allSettled(artWorksPromise);
+  const results: PromiseSettledResult<Artwork>[] = await Promise.allSettled(artWorksPromise);
 
   results.forEach((result) => {
     if (result.status === 'fulfilled') {

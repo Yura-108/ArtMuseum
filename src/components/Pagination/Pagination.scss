@@ -1,5 +1,8 @@
+@import "@styles/_mixins.scss";
+@import "@styles/_variables.scss";
+
 .containerPagination {
-  width: 1280px;
+  width: $width-main-container;
   margin-top: 24px;
   display: flex;
   justify-content: flex-end;
@@ -15,31 +18,20 @@
 
     .page {
       cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: rgba(57, 57, 57, 1);
-      padding: 0.5rem;
-      font-family: 'Lexend Deca', sans-serif;
-      font-weight: 300;
-      font-size: 18px;
-      line-height: 24px;
+      @include flex-center;
+      color: $color-text-grey;
+      padding: 10px;
+      @include font-style('Lexend Deca', 300, 18px, 24px);
     }
     .active {
-      background: rgba(241, 121, 0, 1);
-      font-family: 'Lexend Deca', sans-serif;
-      font-weight: 600;
-      font-size: 18px;
-      line-height: 23px;
+      background: $color-orange;
+      @include font-style('Lexend Deca', 600, 18px, 23px);
       color: #fff;
       border-radius: 4px;
     }
   }
-  @media (max-width: 1280px) {
+  @media (max-width: $width-main-container) {
     justify-content: center;
     margin-top: 0;
-  }
-
-  @media (max-width: 768px) {
   }
 }

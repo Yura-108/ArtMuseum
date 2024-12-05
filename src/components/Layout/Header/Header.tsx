@@ -1,12 +1,12 @@
 import './Header.scss';
-import logo from '@images/museum-logo.svg';
-import favoriteIcon from '@images/favoriteIcon.svg';
-import burgerIcon from '@images/burgerMenuIcon.svg';
+import burgerIcon from '@assets/images/burgerMenuIcon.svg';
+import favoriteIcon from '@assets/images/favoriteIcon.svg';
+import logo from '@assets/images/museum-logo.svg';
+import useBurgerMenu from '@utils/hooks/useBurgerMenu.ts';
 import { Link } from 'react-router-dom';
-import useBurgerMenu from '../../../utils/hooks/useBurgerMenu.ts';
 
 export default function Header() {
-  const {isOpen, openMenu, closeMenu} = useBurgerMenu();
+  const { isOpen, openMenu, closeMenu } = useBurgerMenu();
 
   return (
     <header>
@@ -18,12 +18,14 @@ export default function Header() {
         </Link>
         <img
           onClick={isOpen ? closeMenu : openMenu}
-          className={"burgerButton"} src={burgerIcon}
+          className={'burgerButton'}
+          src={burgerIcon}
           alt="burgerIcon"
         />
         <Link
           to={'/favorites'}
-          className={`burgerMenu ${isOpen ? 'open' : ''}`}>
+          className={`burgerMenu ${isOpen ? 'open' : ''}`}
+        >
           <img src={favoriteIcon} alt="favorite" />
           <span>Your favorites</span>
         </Link>

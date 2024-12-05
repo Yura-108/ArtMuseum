@@ -3,6 +3,6 @@ export const getFromSessionStorage = (key: string) => {
   return data ? JSON.parse(data) : [];
 };
 
-export const setToSessionStorage = (key: string, value: any) => {
+export const setToSessionStorage = (key: string, value: number[]) => {
   sessionStorage.setItem(key, JSON.stringify(value));
 };

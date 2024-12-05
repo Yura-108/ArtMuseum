@@ -1,14 +1,14 @@
+@import "@styles/_mixins.scss";
+@import "@styles/_variables.scss";
+
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
 }
 #root {
-  display: flex;
-  align-items: center;
-  text-align: center;
-  flex-direction: column;
-  background: #FAFAFA;
+  @include flex-center-column;
+  background: $background-color;
   overflow-x: hidden;
 }
 a {

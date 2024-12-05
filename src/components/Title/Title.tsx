@@ -1,5 +1,6 @@
 import './Title.scss';
 import React from 'react';
+
 interface Props {
   children?: React.ReactNode | string;
 }
