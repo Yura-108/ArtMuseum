@@ -1,3 +1,6 @@
+@import "@styles/_mixins.scss";
+@import "@styles/_variables.scss";
+
 header {
   background: linear-gradient(
     90deg,
@@ -7,17 +10,13 @@ header {
   );
   width: 100%;
   height: 127px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 120px;
+  @include flex-center;
+  margin-bottom: $spacing-medium;
   position: relative;
   .container {
-    width: 1280px;
+    width: $width-main-container;
     height: 63px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+    @include flex-space-between;
 
     .logo {
       img {
@@ -32,25 +31,21 @@ header {
     }
     .burgerMenu {
       cursor: pointer;
-      display: flex;
-      align-items: center;
+      @include flex-center;
       span {
-        font-family: Inter, sans-serif;
-        font-weight: 400;
-        font-size: 18px;
-        line-height: 21.78px;
+        @include font-style("Inter", 400, 18px, 22px);
         color: #fff;
         margin-left: 4px;
       }
     }
   }
-  @media (max-width: 1280px) {
+  @media (max-width: $width-main-container) {
     .container {
       justify-content: space-around;
     }
   }
 
-  @media (max-width: 768px) {
+  @media (max-width: $width-main-container-small) {
     .container {
       .burgerButton {
         display: block;
@@ -62,10 +57,10 @@ header {
         width: 100%;
         top: 100%;
         background: linear-gradient(
-                        90deg,
-                        #343333 38.05%,
-                        #484848 69.22%,
-                        #282828 98.98%
+          90deg,
+          #343333 38.05%,
+          #484848 69.22%,
+          #282828 98.98%
         );
         padding: 20px;
         &.open {

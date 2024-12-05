@@ -1,13 +1,11 @@
 import './Pagination.scss';
-import React, { useEffect, useState } from 'react';
-import CombinedShape from '@images/CombinedShape.svg';
-import { getNumberOfTotalPages } from '../../utils/APIFunctions';
+import CombinedShape from '@assets/images/CombinedShape.svg';
 import { useQuery } from '@tanstack/react-query';
+import { getNumberOfTotalPages } from '@utils/API/APIFunctions.ts';
+import React, { useEffect, useState } from 'react';
+import { PaginationProps } from '@types/componentsPropsTypes.ts';
 
-interface PaginationProps {
-  activePage: number;
-  setActivePage: (page: number) => void;
-}
+
 
 const Pagination: React.FC<PaginationProps> = ({
   activePage,

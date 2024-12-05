@@ -1,15 +1,15 @@
 import './App.scss';
-import Header from './components/Layout/Header/Header.tsx';
 import Footer from './components/Layout/Footer/Footer.tsx';
-import MainPage from './pages/main/MainPage.tsx';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import Artwork from './pages/artwork/Artwork.tsx';
+import Header from './components/Layout/Header/Header.tsx';
 import NotFoundComponent from './pages/404/NotFoundComponent.tsx';
+import Artwork from './pages/artwork/Artwork.tsx';
 import Favorites from './pages/favorites/Favorites.tsx';
+import MainPage from './pages/main/MainPage.tsx';
+import { HashRouter, Route, Routes } from 'react-router-dom';
 
 function App() {
   return (
-    <BrowserRouter>
+    <HashRouter>
       <Header />
       <Routes>
         <Route path="/" element={<MainPage />} />
@@ -18,7 +18,7 @@ function App() {
         <Route path="/artwork/:id" element={<Artwork />} />
       </Routes>
       <Footer />
-    </BrowserRouter>
+    </HashRouter>
   );
 }
 

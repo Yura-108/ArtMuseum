@@ -1,22 +1,19 @@
 import Card from '../Card/Card.tsx';
 import './ContainerCards.scss';
-import React, { useState } from 'react';
-import { getPage } from '@utils/APIFunctions.ts';
-import SectionTitle from '../SectionTitle/SectionTitle.tsx';
 import Pagination from '../Pagination/Pagination.tsx';
-import { useQuery } from '@tanstack/react-query';
+import SectionTitle from '../SectionTitle/SectionTitle.tsx';
 import CardContainerSkeleton from '../Skeletons/CardContainerSkeleton.tsx';
-import { MAX_PAGE_PAGINATION } from '@constants/nums.ts';
 import Sorting from '../Sorting/Sorting.tsx';
+import { MAX_PAGE_PAGINATION } from '@constants/nums.ts';
+import { useQuery } from '@tanstack/react-query';
+import { getPage } from '@utils/API/APIFunctions.ts';
 import sortArtwork from '@utils/sortArtwork.ts';
-import { SortMethod } from '../../type/types.ts';
+import React, { useState } from 'react';
+import { SortMethod } from '@types/SortMethod.ts';
+import { Artwork } from '@utils/artworkSchema.ts';
 
-interface Props {
-  activePage: number;
-  sortMethod: number;
-}
 
-const ContainerCards: React.FC<Props> = () => {
+const ContainerCards: React.FC = () => {
   const [activePage, setActivePage] = useState<number>(0);
   const [sortMethod, setSortMethod] = useState<SortMethod>('title');
 
@@ -33,7 +30,7 @@ const ContainerCards: React.FC<Props> = () => {
       {isPending && <CardContainerSkeleton length={MAX_PAGE_PAGINATION} />}
       {!isPending && (
         <div className="containerCards">
-          {data.map((artwork: any) => (
+          {data?.map((artwork: Artwork) => (
             <Card key={artwork.id} artwork={artwork} />
           ))}
         </div>
