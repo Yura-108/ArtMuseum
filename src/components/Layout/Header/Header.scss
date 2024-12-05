@@ -1,3 +1,9 @@
+<<<<<<< HEAD
+@import '@styles/_mixins.scss';
+@import '@styles/_variables.scss';
+
+=======
+>>>>>>> main
 header {
   background: linear-gradient(
     90deg,
@@ -7,6 +13,15 @@ header {
   );
   width: 100%;
   height: 127px;
+<<<<<<< HEAD
+  @include flex-center;
+  margin-bottom: $spacing-medium;
+  position: relative;
+  .container {
+    width: $width-main-container;
+    height: 63px;
+    @include flex-space-between;
+=======
   display: flex;
   align-items: center;
   justify-content: center;
@@ -18,6 +33,7 @@ header {
     display: flex;
     align-items: center;
     justify-content: space-between;
+>>>>>>> main
 
     .logo {
       img {
@@ -32,6 +48,11 @@ header {
     }
     .burgerMenu {
       cursor: pointer;
+<<<<<<< HEAD
+      @include flex-center;
+      span {
+        @include font-style('Inter', 400, 18px, 22px);
+=======
       display: flex;
       align-items: center;
       span {
@@ -39,18 +60,27 @@ header {
         font-weight: 400;
         font-size: 18px;
         line-height: 21.78px;
+>>>>>>> main
         color: #fff;
         margin-left: 4px;
       }
     }
   }
+<<<<<<< HEAD
+  @media (max-width: $width-main-container) {
+=======
   @media (max-width: 1280px) {
+>>>>>>> main
     .container {
       justify-content: space-around;
     }
   }
 
+<<<<<<< HEAD
+  @media (max-width: $width-main-container-small) {
+=======
   @media (max-width: 768px) {
+>>>>>>> main
     .container {
       .burgerButton {
         display: block;
@@ -62,10 +92,17 @@ header {
         width: 100%;
         top: 100%;
         background: linear-gradient(
+<<<<<<< HEAD
+          90deg,
+          #343333 38.05%,
+          #484848 69.22%,
+          #282828 98.98%
+=======
                         90deg,
                         #343333 38.05%,
                         #484848 69.22%,
                         #282828 98.98%
+>>>>>>> main
         );
         padding: 20px;
         &.open {

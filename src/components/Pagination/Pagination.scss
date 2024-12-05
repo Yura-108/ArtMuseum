@@ -1,12 +1,27 @@
+<<<<<<< HEAD
+@import '@styles/mixins';
+@import '@styles/variables';
+
+.containerPagination {
+  width: $width-main-container;
+=======
 .containerPagination {
   width: 1280px;
+>>>>>>> main
   margin-top: 24px;
   display: flex;
   justify-content: flex-end;
   .pagination {
     user-select: none;
+<<<<<<< HEAD
+    min-width: 200px;
     height: 30px;
     display: flex;
+    justify-content: space-between;
+=======
+    height: 30px;
+    display: flex;
+>>>>>>> main
     .prev {
       img {
         transform: rotate(180deg);
@@ -15,6 +30,16 @@
 
     .page {
       cursor: pointer;
+<<<<<<< HEAD
+      @include flex-center;
+      color: $color-text-grey;
+      padding: 10px;
+      @include font-style('Lexend Deca', 300, 18px, 24px);
+    }
+    .active {
+      background: $color-orange;
+      @include font-style('Lexend Deca', 600, 18px, 23px);
+=======
       display: flex;
       align-items: center;
       justify-content: center;
@@ -31,10 +56,17 @@
       font-weight: 600;
       font-size: 18px;
       line-height: 23px;
+>>>>>>> main
       color: #fff;
       border-radius: 4px;
     }
   }
+<<<<<<< HEAD
+  @media (max-width: $width-main-container) {
+    justify-content: center;
+    margin-top: 0;
+  }
+=======
   @media (max-width: 1280px) {
     justify-content: center;
     margin-top: 0;
@@ -42,4 +74,5 @@
 
   @media (max-width: 768px) {
   }
+>>>>>>> main
 }

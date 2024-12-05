@@ -12,8 +12,18 @@ export const ARTWORKS_PARAMS = ({
   page: number;
 }>) =>
   `${ARTWORKS_TEMPLATE}?page=${page}&limit=${limit}${fields ? `&fields=${fields}` : ''}`;
+<<<<<<< HEAD
+export const IMAGE_URL = (id: string | number | null): string => {
+  if (!id) {
+    return '@assets/images/plug.svg';
+  }
+  return `https://www.artic.edu/iiif/2/${id}/full/full/0/default.jpg`;
+};
+
+=======
 
 export const IMAGE_URL = (id: number | string) =>
   `https://www.artic.edu/iiif/2/${id}/full/full/0/default.jpg`;
+>>>>>>> main
 export const SEARCH_URL = (q: string, size: number) =>
   `${ARTWORKS_TEMPLATE}/search?q=${q}&size=${size}`;

@@ -1,3 +1,19 @@
+<<<<<<< HEAD
+@import '@styles/variables';
+@import '@styles/mixins';
+
+.errorMessage {
+  color: $color-error;
+  background-color: $background-color-error;
+  border: $border-error;
+  border-radius: 4px;
+  padding: 10px 15px;
+  @include font-style('Lexend Deca', 500, 18px, 26px);
+  text-align: center;
+  margin: 10px auto;
+  max-width: 500px;
+  box-shadow: 0 2px 5px #00000019;
+=======
 .errorMessage {
   color: #ff4d4f;
   background-color: #fff1f0;
@@ -10,4 +26,5 @@
   margin: 10px auto;
   max-width: 500px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+>>>>>>> main
 }

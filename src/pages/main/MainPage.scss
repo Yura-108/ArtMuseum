@@ -1,5 +1,12 @@
+<<<<<<< HEAD
+@import '@styles/_mixins.scss';
+
+#main {
+  @include flex-center-column;
+=======
 #main {
   display: flex;
   flex-direction: column;
   align-items: center;
+>>>>>>> main
 }

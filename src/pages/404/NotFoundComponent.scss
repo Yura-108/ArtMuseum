@@ -1,3 +1,12 @@
+<<<<<<< HEAD
+@import '@styles/_mixins.scss';
+@import '@styles/_variables.scss';
+
+.NotFoundComponent {
+  h2 {
+    @include font-style('Lexend Deca', 400, 32px, 26px);
+    color: $color-text-grey;
+=======
 .NotFoundComponent {
   h2 {
     font-family: 'Lexend Deca', sans-serif;
@@ -5,5 +14,6 @@
     font-size: 32px;
     line-height: 26px;
     color: rgb(57, 57, 57);
+>>>>>>> main
   }
 }

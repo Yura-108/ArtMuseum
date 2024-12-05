@@ -1,3 +1,25 @@
+<<<<<<< HEAD
+@import '@styles/_mixins.scss';
+@import '@styles/_variables.scss';
+
+.containerTitle {
+  text-align: center;
+  width: 100%;
+  margin-top: $spacing-medium;
+  margin-bottom: 40px;
+  h2 {
+    color: $color-text-grey;
+    @include font-style('Lexend Deca', 400, 32px, 40px);
+  }
+  h4 {
+    color: $color-text-orange;
+    @include font-style('Lexend Deca', 400, 16px, 20px);
+  }
+  @media (max-width: $width-main-container) {
+    margin: 50px 0 20px 0;
+    h2 {
+      @include font-style('Lexend Deca', 400, 24px, 40px);
+=======
 .containerTitle {
   text-align: center;
   width: 100%;
@@ -22,6 +44,7 @@
     h2 {
       font-size: 24px;
       line-height: 40px;
+>>>>>>> main
     }
   }
 }

@@ -1,3 +1,15 @@
+<<<<<<< HEAD
+import ContainerSmallCard from '../ContainerSmallCards/ContainerSmallCard.tsx';
+import Message from '../Message/Message.tsx';
+import SmallCardContainerSkeleton from '../Skeletons/SmallCardContainerSkeleton.tsx';
+import { SEARCH_ITEMS_LIMIT } from '@constants/nums.ts';
+import { useQuery } from '@tanstack/react-query';
+import { getSearch } from '@utils/API/APIFunctions.ts';
+import React from 'react';
+import { FoundCardsProps } from '@types/componentsPropsTypes.ts';
+
+const FoundCards: React.FC<FoundCardsProps> = ({ debouncedQuery }) => {
+=======
 import React from 'react';
 import { getSearch } from '../../utils/APIFunctions.ts';
 import ContainerSmallCard from '../ContainerSmallCards/ContainerSmallCard.tsx';
@@ -11,6 +23,7 @@ interface Props {
 }
 
 const FoundCards: React.FC<Props> = ({ debouncedQuery }) => {
+>>>>>>> main
   if (debouncedQuery.length <= 0) return;
 
   const { data, isPending } = useQuery({

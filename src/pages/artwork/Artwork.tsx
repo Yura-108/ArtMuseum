@@ -1,3 +1,14 @@
+<<<<<<< HEAD
+import { IMAGE_URL } from '@constants/API.ts';
+import { useQuery } from '@tanstack/react-query';
+import React from 'react';
+import { Navigate, useLocation, useParams } from 'react-router-dom';
+import './Artwork.scss';
+import ErrorMessage from '@components/ErrorMessage/ErrorMessage.tsx';
+import ArtworkSkeleton from '@components/Skeletons/ArtworkSkeleton.tsx';
+import { getArtWork } from '@utils/API/APIFunctions.ts';
+import handleImageError from '@utils/handleImageError.ts';
+=======
 import React from 'react';
 import { Navigate, useLocation, useParams } from 'react-router-dom';
 import { useQuery } from '@tanstack/react-query';
@@ -7,6 +18,7 @@ import './Artwork.scss';
 import ArtworkSkeleton from '../../components/Skeletons/ArtworkSkeleton.tsx';
 import ErrorMessage from '../../components/ErrorMessage/ErrorMessage.tsx';
 import handleImageError from '../../utils/handleImageError.ts';
+>>>>>>> main
 
 const Artwork: React.FC = () => {
   const { id } = useParams();

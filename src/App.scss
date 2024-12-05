@@ -1,14 +1,25 @@
+<<<<<<< HEAD
+@import '@styles/_mixins.scss';
+@import '@styles/_variables.scss';
+
+=======
+>>>>>>> main
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
 }
 #root {
+<<<<<<< HEAD
+  @include flex-center-column;
+  background: $background-color;
+=======
   display: flex;
   align-items: center;
   text-align: center;
   flex-direction: column;
   background: #FAFAFA;
+>>>>>>> main
   overflow-x: hidden;
 }
 a {

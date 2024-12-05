@@ -1,5 +1,11 @@
 {
+<<<<<<< HEAD
+  "extends": "./tsconfig.json",
   "compilerOptions": {
+    "composite": true,
+=======
+  "compilerOptions": {
+>>>>>>> main
     "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.app.tsbuildinfo",
     "target": "ES2020",
     "useDefineForClassFields": true,
@@ -8,8 +14,14 @@
     "skipLibCheck": true,
 
     /* Bundler mode */
+<<<<<<< HEAD
+    "moduleResolution": "bundler",
+    "allowImportingTsExtensions": true,
+    "resolveJsonModule": true,
+=======
     "moduleResolution": "Bundler",
     "allowImportingTsExtensions": true,
+>>>>>>> main
     "isolatedModules": true,
     "moduleDetection": "force",
     "noEmit": true,
@@ -19,8 +31,32 @@
     "strict": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
+<<<<<<< HEAD
+    "noFallthroughCasesInSwitch": true
+  },
+  "include": [
+    "src/**/*",
+    "tests/utils/ScrollToTop.test.tsx",
+    "tests/utils/HtmlStripper.test.tsx",
+    "tests/utils/useDebounce.test.tsx",
+    "tests/utils/ApiController.test.ts",
+    "tests/pages/HomePage.test.tsx",
+    "tests/pages/FavouritesPage.test.tsx",
+    "tests/pages/Error.test.tsx",
+    "tests/pages/ArtworkPage.test.tsx",
+    "tests/pages/500.test.tsx",
+    "tests/components/StubImage.test.tsx",
+    "tests/components/SpecialGallery.test.tsx",
+    "tests/components/SectionHeader.test.tsx",
+    "tests/components/Footer.test.tsx",
+    "tests/components/BookmarkButton.test.tsx",
+    "tests/components/Header.test.tsx",
+    "tests/utils/FavStorage.test.ts"
+  ]
+=======
     "noFallthroughCasesInSwitch": true,
     "noUncheckedSideEffectImports": true
   },
   "include": ["src"]
+>>>>>>> main
 }

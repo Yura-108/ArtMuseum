@@ -1,7 +1,18 @@
+<<<<<<< HEAD
+@import '@styles/mixins';
+@import '@styles/variables';
+
+.info {
+  background-color: #fff;
+  min-height: 80px;
+  padding: 10px;
+  @include flex-space-between;
+=======
 .info {
   background-color: #fff;
   display: flex;
   justify-content: space-between;
+>>>>>>> main
 
   .text {
     width: calc(100% - 59px);
@@ -9,6 +20,24 @@
   }
   h4 {
     width: 80%;
+<<<<<<< HEAD
+    color: $color-text-grey;
+    @include font-style('Lexend Deca', 500, 18px, 26px);
+    @include font-ellipsis;
+  }
+  h6 {
+    color: $color-text-orange;
+    @include font-style('Lexend Deca', 400, 15px, 26px);
+    @include font-ellipsis;
+  }
+  h5 {
+    margin-top: 12px;
+    color: $color-text-grey;
+    @include font-style('Lexend Deca', 700, 15px, 26px);
+  }
+  .favorite {
+    @include flex-center;
+=======
     color: rgba(57, 57, 57, 1);
     font-family: 'Lexend Deca', sans-serif;
     font-weight: 500;
@@ -40,6 +69,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+>>>>>>> main
     width: 59px;
     height: 59px;
     border: none;

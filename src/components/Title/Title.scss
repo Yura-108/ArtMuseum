@@ -1,3 +1,14 @@
+<<<<<<< HEAD
+@import '@styles/mixins';
+@import '@styles/variables';
+
+h1 {
+  @include font-style('Lexend Deca', 700, 64px, 80px);
+  text-transform: capitalize;
+  color: $color-text-grey;
+  div {
+    @include flex-center;
+=======
 h1 {
   font-family: 'Lexend Deca', sans-serif;
   font-weight: 700;
@@ -9,27 +20,42 @@ h1 {
     display: flex;
     justify-content: center;
     align-items: center;
+>>>>>>> main
     span {
       margin-left: 20px;
     }
   }
   span {
+<<<<<<< HEAD
+    color: $color-orange;
+=======
     color: rgba(241, 121, 0, 1);
+>>>>>>> main
   }
   img {
     width: 64px;
   }
+<<<<<<< HEAD
+  @media (max-width: $width-main-container) {
+    @include font-style('Lexend Deca', 500, 48px, 60px);
+=======
   @media (max-width: 1280px) {
     font-size: 48px;
     line-height: 60px;
+>>>>>>> main
     img {
       width: 48px;
     }
   }
 
+<<<<<<< HEAD
+  @media (max-width: $width-main-container-small) {
+    @include font-style('Lexend Deca', 500, 32px, 40px);
+=======
   @media (max-width: 768px) {
     font-size: 32px;
     line-height: 40px;
+>>>>>>> main
     span {
       margin-left: 5px;
     }
