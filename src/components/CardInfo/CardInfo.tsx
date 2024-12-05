@@ -6,7 +6,6 @@ import { useFavoritesContext } from '@store/FavoritesContext.tsx';
 import { isPrivateDomain, isPublicDomain } from '@constants/staticData.ts';
 import { CardInfoProps } from '@types/componentsPropsTypes.ts';
 
-
 const CardInfo: React.FC<CardInfoProps> = ({
   id,
   title,

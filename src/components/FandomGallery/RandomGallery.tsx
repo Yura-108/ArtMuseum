@@ -5,18 +5,16 @@ import SmallCardContainerSkeleton from '../Skeletons/SmallCardContainerSkeleton.
 import { RANDOM_GALLERY_LIMIT } from '@constants/nums.ts';
 import { useQuery } from '@tanstack/react-query';
 import { getPage } from '@utils/API/APIFunctions.ts';
-import React, {useState } from 'react';
-import generatorRandomNumber from '@utils/generatorRandomNumber.ts';
+import React from 'react';
+import useRandomPageNumber from '@utils/generatorRandomNumber.ts';
 
 const RandomGallery: React.FC = () => {
-  const [randNum] = useState<number>(generatorRandomNumber());
+  const randomPage = useRandomPageNumber(RANDOM_GALLERY_LIMIT);
 
   const { data, isPending, isError, error } = useQuery({
-    queryKey: ['page', randNum],
-    queryFn: () =>
-      getPage({ page: randNum, limit: RANDOM_GALLERY_LIMIT }),
+    queryKey: ['page', randomPage],
+    queryFn: () => getPage({ page: randomPage, limit: RANDOM_GALLERY_LIMIT }),
   });
-
 
   if (isError) return <ErrorMessage>{error.message}</ErrorMessage>;
   return (

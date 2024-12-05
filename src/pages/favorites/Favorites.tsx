@@ -16,7 +16,9 @@ const Favorites: React.FC = () => {
     queryKey: ['page', favorites],
     queryFn: () => getArtWorks(favorites),
   });
+
   if (isError) return <ErrorMessage>{error.message}</ErrorMessage>;
+
   return (
     <>
       <Title>

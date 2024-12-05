@@ -52,7 +52,8 @@ export const getArtWorks = async (ids: number[]): Promise<Artwork[]> => {
   const successfulResults: Artwork[] = [];
   const failedResults: unknown[] = [];
 
-  const results: PromiseSettledResult<Artwork>[] = await Promise.allSettled(artWorksPromise);
+  const results: PromiseSettledResult<Artwork>[] =
+    await Promise.allSettled(artWorksPromise);
 
   results.forEach((result) => {
     if (result.status === 'fulfilled') {

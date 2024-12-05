@@ -7,8 +7,6 @@ import { getSearch } from '@utils/API/APIFunctions.ts';
 import React from 'react';
 import { FoundCardsProps } from '@types/componentsPropsTypes.ts';
 
-
-
 const FoundCards: React.FC<FoundCardsProps> = ({ debouncedQuery }) => {
   if (debouncedQuery.length <= 0) return;
 

@@ -19,7 +19,12 @@
   align-items: center;
 }
 
-@mixin font-style($family: 'Lexend Deca', $weight: 500, $size: 18px, $line-height: 26px) {
+@mixin font-style(
+  $family: 'Lexend Deca',
+  $weight: 500,
+  $size: 18px,
+  $line-height: 26px
+) {
   font-family: $family, sans-serif;
   font-weight: $weight;
   font-size: $size;

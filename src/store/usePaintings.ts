@@ -2,7 +2,6 @@ import { fetchPaintings } from '@utils/API/apiService.ts';
 import { useQuery } from '@tanstack/react-query';
 import { Artwork } from '@utils/artworkSchema.ts';
 
-
 export const usePaintings = (
   page: number,
   limit: number,

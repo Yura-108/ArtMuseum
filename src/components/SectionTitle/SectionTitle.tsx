@@ -1,12 +1,8 @@
 import React from 'react';
 import './SectionTitle.scss';
+import { SectionTitleProps } from '@types/componentsPropsTypes.ts';
 
-interface ISectionTitle {
-  h4: string;
-  h2: string;
-}
-
-const SectionTitle: React.FC<ISectionTitle> = ({ h4, h2 }) => {
+const SectionTitle: React.FC<SectionTitleProps> = ({ h4, h2 }) => {
   return (
     <div className="containerTitle">
       <h4>{h4}</h4>

@@ -1,72 +1,63 @@
 import './Pagination.scss';
 import CombinedShape from '@assets/images/CombinedShape.svg';
-import { useQuery } from '@tanstack/react-query';
-import { getNumberOfTotalPages } from '@utils/API/APIFunctions.ts';
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { PaginationProps } from '@types/componentsPropsTypes.ts';
-
-
+import useRandomPageNumber from '@utils/generatorRandomNumber.ts';
+import { MAX_PAGE_PAGINATION } from '@constants/nums.ts';
 
 const Pagination: React.FC<PaginationProps> = ({
   activePage,
   setActivePage,
 }) => {
-  const [totalPages, setTotalPage] = useState(1);
-  const { data } = useQuery({
-    queryKey: ['maxPage', activePage],
-    queryFn: () => getNumberOfTotalPages(),
-  });
+  const totalPages = useRandomPageNumber(MAX_PAGE_PAGINATION);
 
-  useEffect(() => {
-    setTotalPage(data ?? totalPages);
-  }, [data]);
-
-  const pagesPerView = 4;
   const [currentRangeStart, setCurrentRangeStart] = useState(0);
 
   const visiblePages = Array.from(
-    { length: Math.min(pagesPerView, totalPages - currentRangeStart) },
-    (_, index) => currentRangeStart + index,
+    { length: Math.min(MAX_PAGE_PAGINATION, totalPages - currentRangeStart) },
+    (_, index) => currentRangeStart + index++,
   );
 
   const handleNextRange = () => {
-    if (currentRangeStart + pagesPerView < totalPages) {
-      setCurrentRangeStart((prev) => prev + pagesPerView);
-    }
-  };
+    const nextPage = activePage + 1;
+    if (nextPage > totalPages) return;
 
+    if (nextPage >= currentRangeStart + MAX_PAGE_PAGINATION) {
+      setCurrentRangeStart((prev) => prev + MAX_PAGE_PAGINATION);
+    }
+
+    setActivePage(nextPage);
+  };
+  console.log(activePage);
   const handlePrevRange = () => {
-    if (currentRangeStart > 0) {
-      setCurrentRangeStart((prev) => prev - pagesPerView);
-    }
-  };
+    const prevPage = activePage - 1;
+    if (prevPage < 0) return;
 
-  const handlePageClick = (page: number) => {
-    setActivePage(page++);
+    if (prevPage < currentRangeStart) {
+      setCurrentRangeStart((prev) => Math.max(prev - MAX_PAGE_PAGINATION, 0));
+    }
+
+    setActivePage(prevPage);
   };
 
   return (
     <div className="containerPagination">
       <div className="pagination">
-        {currentRangeStart > 0 && (
-          <div onClick={handlePrevRange} className="page prev">
-            <img src={CombinedShape} alt="CombinedShapePrev" />
-          </div>
-        )}
+        <div onClick={handlePrevRange} className="page prev">
+          <img src={CombinedShape} alt="CombinedShapePrev" />
+        </div>
         {visiblePages.map((page) => (
           <div
             key={page}
-            onClick={() => handlePageClick(page)}
+            onClick={() => setActivePage(page)}
             className={`page ${activePage === page ? 'active' : ''}`}
           >
             {page + 1}
           </div>
         ))}
-        {currentRangeStart < totalPages - pagesPerView && (
-          <div onClick={handleNextRange} className="page next">
-            <img src={CombinedShape} alt="CombinedShapeNext" />
-          </div>
-        )}
+        <div onClick={handleNextRange} className="page next">
+          <img src={CombinedShape} alt="CombinedShapeNext" />
+        </div>
       </div>
     </div>
   );

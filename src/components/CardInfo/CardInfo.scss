@@ -1,8 +1,10 @@
-@import "@styles/mixins";
-@import "@styles/variables";
+@import '@styles/mixins';
+@import '@styles/variables';
 
 .info {
   background-color: #fff;
+  min-height: 80px;
+  padding: 10px;
   @include flex-space-between;
 
   .text {
@@ -13,7 +15,7 @@
     width: 80%;
     color: $color-text-grey;
     @include font-style('Lexend Deca', 500, 18px, 26px);
-
+    @include font-ellipsis;
   }
   h6 {
     color: $color-text-orange;
@@ -24,7 +26,6 @@
     margin-top: 12px;
     color: $color-text-grey;
     @include font-style('Lexend Deca', 700, 15px, 26px);
-    @include font-ellipsis;
   }
   .favorite {
     @include flex-center;

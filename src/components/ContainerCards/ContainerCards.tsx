@@ -11,17 +11,23 @@ import sortArtwork from '@utils/sortArtwork.ts';
 import React, { useState } from 'react';
 import { SortMethod } from '@types/SortMethod.ts';
 import { Artwork } from '@utils/artworkSchema.ts';
-
+import useDebounce from '@utils/hooks/useDebounce.ts';
 
 const ContainerCards: React.FC = () => {
   const [activePage, setActivePage] = useState<number>(0);
   const [sortMethod, setSortMethod] = useState<SortMethod>('title');
 
+  const debouncedPage = useDebounce(activePage, 500);
+
   const { data, isPending } = useQuery({
-    queryKey: ['page', activePage],
-    queryFn: () => getPage({ page: activePage }),
+    queryKey: ['page', debouncedPage, sortMethod],
+    queryFn: () => getPage({ page: debouncedPage }),
     select: (data) => sortArtwork(data, sortMethod),
   });
+
+  const handlePageChange = (page: number) => {
+    setActivePage(page);
+  };
 
   return (
     <>
@@ -35,7 +41,7 @@ const ContainerCards: React.FC = () => {
           ))}
         </div>
       )}
-      <Pagination activePage={activePage} setActivePage={setActivePage} />
+      <Pagination activePage={activePage} setActivePage={handlePageChange} />
     </>
   );
 };

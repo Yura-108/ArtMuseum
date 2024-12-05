@@ -1,4 +1,6 @@
 import { Artwork } from '@utils/artworkSchema.ts';
+import { SortMethod } from '@types/SortMethod.ts';
+import React from 'react';
 
 export interface CardInfoProps {
   id: number;
@@ -26,4 +28,17 @@ export interface FoundCardsProps {
 export interface PaginationProps {
   activePage: number;
   setActivePage: (page: number) => void;
+}
+
+export interface SectionTitleProps {
+  h4: string;
+  h2: string;
+}
+
+export interface SortingProps {
+  setSortMethod: (method: SortMethod) => void;
+}
+
+export interface TitleProps {
+  children?: React.ReactNode | string;
 }

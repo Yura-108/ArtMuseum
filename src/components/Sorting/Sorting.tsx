@@ -1,12 +1,9 @@
 import React from 'react';
 import './Sorting.scss';
 import { SortMethod } from '@types/SortMethod.ts';
+import { SortingProps } from '@types/componentsPropsTypes.ts';
 
-interface Props {
-  setSortMethod: (method: SortMethod) => void;
-}
-
-const Sorting: React.FC<Props> = ({ setSortMethod }) => {
+const Sorting: React.FC<SortingProps> = ({ setSortMethod }) => {
   const handleSortChange = (method: SortMethod) => {
     setSortMethod(method);
   };

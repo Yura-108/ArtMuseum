@@ -1,5 +1,5 @@
-@import "@styles/_mixins.scss";
-@import "@styles/_variables.scss";
+@import '@styles/mixins';
+@import '@styles/variables';
 
 .containerPagination {
   width: $width-main-container;
@@ -8,8 +8,10 @@
   justify-content: flex-end;
   .pagination {
     user-select: none;
+    min-width: 200px;
     height: 30px;
     display: flex;
+    justify-content: space-between;
     .prev {
       img {
         transform: rotate(180deg);

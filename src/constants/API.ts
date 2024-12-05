@@ -19,6 +19,5 @@ export const IMAGE_URL = (id: string | number | null): string => {
   return `https://www.artic.edu/iiif/2/${id}/full/full/0/default.jpg`;
 };
 
-
 export const SEARCH_URL = (q: string, size: number) =>
   `${ARTWORKS_TEMPLATE}/search?q=${q}&size=${size}`;

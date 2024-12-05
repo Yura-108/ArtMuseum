@@ -7,9 +7,9 @@ export default defineConfig({
   css: {
     preprocessorOptions: {
       scss: {
-        api: 'modern-compiler'
-      }
-    }
+        api: 'modern-compiler',
+      },
+    },
   },
   resolve: {
     alias: {
@@ -20,7 +20,7 @@ export default defineConfig({
       '@styles': path.resolve(__dirname, 'src/styles'),
       '@constants': path.resolve(__dirname, 'src/constants'),
       '@store': path.resolve(__dirname, 'src/store'),
-      '@types': path.resolve(__dirname, 'src/types')
+      '@types': path.resolve(__dirname, 'src/types'),
     },
   },
 });

@@ -6,7 +6,6 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { CardProps } from '@types/componentsPropsTypes.ts';
 
-
 const Card: React.FC<CardProps> = ({ artwork }) => {
   return (
     <Link to={`/artwork/${artwork.id}`} state={artwork}>

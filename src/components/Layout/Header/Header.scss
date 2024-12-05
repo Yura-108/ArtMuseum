@@ -1,5 +1,5 @@
-@import "@styles/_mixins.scss";
-@import "@styles/_variables.scss";
+@import '@styles/_mixins.scss';
+@import '@styles/_variables.scss';
 
 header {
   background: linear-gradient(
@@ -33,7 +33,7 @@ header {
       cursor: pointer;
       @include flex-center;
       span {
-        @include font-style("Inter", 400, 18px, 22px);
+        @include font-style('Inter', 400, 18px, 22px);
         color: #fff;
         margin-left: 4px;
       }
