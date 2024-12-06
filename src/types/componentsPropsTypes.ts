@@ -1,6 +1,6 @@
 import { Artwork } from '@utils/artworkSchema.ts';
 import { SortMethod } from '@types/SortMethod.ts';
-import React from 'react';
+import React, { ReactNode } from 'react';
 
 export interface CardInfoProps {
   id: number;
@@ -41,4 +41,17 @@ export interface SortingProps {
 
 export interface TitleProps {
   children?: React.ReactNode | string;
+}
+
+export interface ValidationSearchProps {
+  onSearch: (query: string) => void;
+}
+
+export interface ErrorBoundaryProps {
+  children: ReactNode;
+  fallback?: ReactNode;
+}
+
+export interface ErrorBoundaryState {
+  hasError: boolean;
 }
