@@ -1,5 +1,6 @@
 import React from 'react';
 import ContentLoader from 'react-content-loader';
+import { v4 as uuidv4 } from 'uuid';
 
 interface Props {
   length: number;
@@ -25,8 +26,8 @@ const SmallCardSkeleton: React.FC = () => (
 const SmallCardContainerSkeleton: React.FC<Props> = ({ length }) => {
   return (
     <div className={'containerSmallCards'}>
-      {Array.from({ length: length }).map((_, i) => (
-        <SmallCardSkeleton key={i} />
+      {Array.from({ length: length }).map(() => (
+        <SmallCardSkeleton key={uuidv4()} />
       ))}
     </div>
   );

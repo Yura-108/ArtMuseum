@@ -8,6 +8,10 @@
   padding: 12px;
   border-radius: 16px;
   background-color: #f0f0f0;
+  button {
+    border: none;
+    outline: none;
+  }
   input {
     background: transparent;
     color: #000;
@@ -23,6 +27,9 @@
       color: rgba(57, 57, 57, 0.5);
       font-size: 14px;
     }
+  }
+  .error-message {
+    color: #dc3545;
   }
   .icon {
     width: 32px;
