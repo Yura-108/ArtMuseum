@@ -1,12 +1,6 @@
-<<<<<<< HEAD
 import Pagination from '../../components/Pagination/Pagination.tsx';
 import { fireEvent, render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
-=======
-import { render, screen, fireEvent } from '@testing-library/react';
-import Pagination from '../../components/Pagination/Pagination.tsx';
-import '@testing-library/jest-dom'
->>>>>>> main
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 
 const queryClient = new QueryClient();
@@ -30,33 +24,19 @@ describe('Pagination Component', () => {
 
   it('renders pagination with initial pages', () => {
     render(
-<<<<<<< HEAD
       <QueryClientProvider client={queryClient}>
         <Pagination activePage={0} setActivePage={mockSetActivePage} />
       </QueryClientProvider>,
-=======
-      <QueryClientProvider client={queryClient} >
-        <Pagination activePage={0} setActivePage={mockSetActivePage} />
-      </QueryClientProvider>
->>>>>>> main
     );
     // Проверяем, что первая страница отображается
     expect(screen.getByText('1')).toBeInTheDocument();
   });
 
-<<<<<<< HEAD
   it('calls setActivePage with correct page number on page click', async () => {
     render(
       <QueryClientProvider client={queryClient}>
         <Pagination activePage={0} setActivePage={mockSetActivePage} />
       </QueryClientProvider>,
-=======
-  it('calls setActivePage with correct page number on page click', async() => {
-    render(
-      <QueryClientProvider client={queryClient} >
-        <Pagination activePage={0} setActivePage={mockSetActivePage} />
-      </QueryClientProvider>
->>>>>>> main
     );
 
     const secondPage = await screen.findByText('2');
@@ -66,20 +46,11 @@ describe('Pagination Component', () => {
     expect(mockSetActivePage).toHaveBeenCalledWith(1);
   });
 
-<<<<<<< HEAD
   it('disables "prev" when on the first page', () => {
     render(
       <QueryClientProvider client={queryClient}>
         <Pagination activePage={0} setActivePage={mockSetActivePage} />
       </QueryClientProvider>,
-=======
-
-  it('disables "prev" when on the first page', () => {
-    render(
-      <QueryClientProvider client={queryClient} >
-        <Pagination activePage={0} setActivePage={mockSetActivePage} />
-      </QueryClientProvider>
->>>>>>> main
     );
     // Проверяем, что кнопка "Prev" недоступна
     const prevButton = screen.queryByAltText('CombinedShapePrev');
@@ -90,11 +61,7 @@ describe('Pagination Component', () => {
     render(
       <QueryClientProvider client={queryClient}>
         <Pagination activePage={0} setActivePage={mockSetActivePage} />
-<<<<<<< HEAD
       </QueryClientProvider>,
-=======
-      </QueryClientProvider>
->>>>>>> main
     );
 
     // Кнопка "Next"
@@ -110,8 +77,4 @@ describe('Pagination Component', () => {
     const newRangePage = screen.getByText('5'); // Первая страница следующего диапазона
     expect(newRangePage).toBeInTheDocument();
   });
-<<<<<<< HEAD
-=======
-
->>>>>>> main
 });

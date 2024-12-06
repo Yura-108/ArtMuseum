@@ -1,23 +1,10 @@
 import './Card.scss';
-<<<<<<< HEAD
 import CardInfo from '../CardInfo/CardInfo.tsx';
 import { IMAGE_URL } from '@constants/API.ts';
 import handleImageError from '@utils/handleImageError.ts';
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { CardProps } from '@types/componentsPropsTypes.ts';
-=======
-import React from 'react';
-import CardInfo from '../CardInfo/CardInfo.tsx';
-import { IMAGE_URL } from '@constants/API.ts';
-import { Link } from 'react-router-dom';
-import { Artwork } from '@utils/artworkSchema.ts';
-import handleImageError from '@utils/handleImageError.ts';
-
-interface CardProps {
-  artwork: Artwork;
-}
->>>>>>> main
 
 const Card: React.FC<CardProps> = ({ artwork }) => {
   return (

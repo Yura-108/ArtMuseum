@@ -1,27 +1,16 @@
-<<<<<<< HEAD
 @import '@styles/_mixins.scss';
 @import '@styles/_variables.scss';
 
 .containerSmallCards {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-=======
-.containerSmallCards {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr); // 3 колонки по умолчанию
->>>>>>> main
   gap: 16px;
 
   .card {
     max-width: 416px;
     max-height: 130px;
     padding: 16px;
-<<<<<<< HEAD
     @include flex-space-between;
-=======
-    display: flex;
-    justify-content: space-between;
->>>>>>> main
     align-items: center;
 
     .backgroundImage {
@@ -35,11 +24,7 @@
     }
   }
 
-<<<<<<< HEAD
   @media (max-width: $width-main-container) {
-=======
-  @media (max-width: 1280px) {
->>>>>>> main
     grid-template-columns: repeat(2, 1fr);
     gap: 12px;
 

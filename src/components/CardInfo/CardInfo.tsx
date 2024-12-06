@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import bookmark_filled from '@assets/images/bookmark_filled.svg';
 import bookmark_hollow from '@assets/images/favoriteIcon.svg';
 import React from 'react';
@@ -6,20 +5,6 @@ import './CardInfo.scss';
 import { useFavoritesContext } from '@store/FavoritesContext.tsx';
 import { isPrivateDomain, isPublicDomain } from '@constants/staticData.ts';
 import { CardInfoProps } from '@types/componentsPropsTypes.ts';
-=======
-import React from 'react';
-import bookmark_hollow from '@images/favoriteIcon.svg';
-import bookmark_filled from '@images/bookmark_filled.svg';
-import './CardInfo.scss';
-import { useFavoritesContext } from '../../store/FavoritesContext.tsx';
-
-interface CardInfoProps {
-  id: number | null;
-  title: string | null;
-  artist: string | null;
-  on_loan_display: string | null;
-}
->>>>>>> main
 
 const CardInfo: React.FC<CardInfoProps> = ({
   id,
@@ -42,11 +27,7 @@ const CardInfo: React.FC<CardInfoProps> = ({
       <div className="text">
         <h4>{title}</h4>
         <h6>{artist}</h6>
-<<<<<<< HEAD
         <h5>{on_loan_display ? isPublicDomain : isPrivateDomain}</h5>
-=======
-        <h5>{on_loan_display ? 'Public' : 'Private'}</h5>
->>>>>>> main
       </div>
       <button
         className="favorite"

@@ -1,5 +1,4 @@
 {
-<<<<<<< HEAD
   "files": [],
   "references": [
     {
@@ -9,8 +8,6 @@
       "path": "./tsconfig.node.json"
     }
   ],
-=======
->>>>>>> main
   "compilerOptions": {
     "esModuleInterop": true,
     "jsx": "react-jsx",
@@ -18,7 +15,6 @@
     "paths": {
       "@components/*": ["src/components/*"],
       "@utils/*": ["src/utils/*"],
-<<<<<<< HEAD
       "@pages/*": ["src/pages/*"],
       "@assets/*": ["src/assets/*"],
       "@styles/*": ["src/styles/*"],
@@ -28,19 +24,4 @@
     },
     "types": ["jest", "@testing-library/jest-dom"]
   }
-=======
-      "@images/*": ["src/images/*"],
-      "@constants/*": ["src/constants/*"],
-      "@pages/*": ["src/pages/*"],
-      "@store/*": ["src/store/*"]
-    },
-    "types": ["jest", "@testing-library/jest-dom"]
-  },
-  "files": [],
-  "include": ["src", "src/**/*.ts", "src/**/*.tsx"],
-  "references": [
-    { "path": "./tsconfig.app.json" },
-    { "path": "./tsconfig.node.json" }
-  ]
->>>>>>> main
 }

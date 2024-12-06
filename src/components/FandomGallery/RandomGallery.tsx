@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import ContainerSmallCards from '../ContainerSmallCards/ContainerSmallCard.tsx';
 import ErrorMessage from '../ErrorMessage/ErrorMessage.tsx';
 import SectionTitle from '../SectionTitle/SectionTitle.tsx';
@@ -17,25 +16,6 @@ const RandomGallery: React.FC = () => {
     queryFn: () => getPage({ page: randomPage, limit: RANDOM_GALLERY_LIMIT }),
   });
 
-=======
-import React, { useRef } from 'react';
-import { useQuery } from '@tanstack/react-query';
-import { getPage } from '../../utils/APIFunctions.ts';
-import SectionTitle from '../SectionTitle/SectionTitle.tsx';
-import ErrorMessage from '../ErrorMessage/ErrorMessage.tsx';
-import ContainerSmallCards from '../ContainerSmallCards/ContainerSmallCard.tsx';
-import SmallCardContainerSkeleton from '../Skeletons/SmallCardContainerSkeleton.tsx';
-import { RANDOM_GALLERY_LIMIT } from '../../constants/nums.ts';
-
-const RandomGallery: React.FC = () => {
-  const refRandNum = useRef<number>(Math.floor(Math.random() * 300) + 1);
-
-  const { data, isPending, isError, error } = useQuery({
-    queryKey: ['page', refRandNum.current],
-    queryFn: () =>
-      getPage({ page: refRandNum.current, limit: RANDOM_GALLERY_LIMIT }),
-  });
->>>>>>> main
   if (isError) return <ErrorMessage>{error.message}</ErrorMessage>;
   return (
     <>

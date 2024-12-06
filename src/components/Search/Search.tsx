@@ -1,19 +1,10 @@
 import './Search.scss';
-<<<<<<< HEAD
 import FoundCards from '../FoundCards/FoundCards.tsx';
 import searchIcon from '@assets/images/search.svg';
 import useDebounce from '@utils/hooks/useDebounce.ts';
 import searchValidator from '@utils/searchValidator.ts';
 import React, { ChangeEvent, useCallback, useEffect, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
-=======
-import searchIcon from '@images/search.svg';
-import React, { ChangeEvent, useCallback, useEffect, useState } from 'react';
-import searchValidator from '@utils/searchValidator.ts';
-import useDebounce from '@utils/hooks/useDebounce.ts';
-import { useSearchParams } from 'react-router-dom';
-import FoundCards from '../FoundCards/FoundCards.tsx';
->>>>>>> main
 
 const Search: React.FC = () => {
   const [searchParams, setSearchParams] = useSearchParams();

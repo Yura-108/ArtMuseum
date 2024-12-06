@@ -1,16 +1,8 @@
-<<<<<<< HEAD
 import { TextDecoder, TextEncoder } from 'util';
 import Card from '../../components/Card/Card.tsx';
 import { render, screen } from '@testing-library/react';
 import handleImageError from '@utils/handleImageError.ts';
 import { BrowserRouter as Router } from 'react-router-dom'; // Для использования Link
-=======
-import { render, screen } from '@testing-library/react';
-import { BrowserRouter as Router } from 'react-router-dom'; // Для использования Link
-import handleImageError from '@utils/handleImageError.ts';
-import Card from '../../components/Card/Card.tsx';
-import { TextEncoder, TextDecoder } from 'util';
->>>>>>> main
 
 // Полифиллим TextEncoder и TextDecoder
 global.TextEncoder = TextEncoder;
@@ -36,11 +28,7 @@ describe('Card Component', () => {
     render(
       <Router>
         <Card artwork={mockArtwork} />
-<<<<<<< HEAD
       </Router>,
-=======
-      </Router>
->>>>>>> main
     );
 
     // Проверяем, что изображение рендерится с правильным src
@@ -56,11 +44,7 @@ describe('Card Component', () => {
     render(
       <Router>
         <Card artwork={mockArtwork} />
-<<<<<<< HEAD
       </Router>,
-=======
-      </Router>
->>>>>>> main
     );
 
     const link = screen.getByRole('link');
@@ -71,11 +55,7 @@ describe('Card Component', () => {
     render(
       <Router>
         <Card artwork={mockArtwork} />
-<<<<<<< HEAD
       </Router>,
-=======
-      </Router>
->>>>>>> main
     );
 
     // Симулируем ошибку при загрузке изображения
@@ -90,11 +70,7 @@ describe('Card Component', () => {
     render(
       <Router>
         <Card artwork={mockArtwork} />
-<<<<<<< HEAD
       </Router>,
-=======
-      </Router>
->>>>>>> main
     );
 
     // Проверяем, что компонент CardInfo получил правильные пропсы
