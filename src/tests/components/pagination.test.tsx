@@ -1,80 +1,85 @@
-import Pagination from '../../components/Pagination/Pagination.tsx';
-import { fireEvent, render, screen } from '@testing-library/react';
-import '@testing-library/jest-dom';
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 
-const queryClient = new QueryClient();
+import { render, screen, fireEvent } from '@testing-library/react';
+import { MAX_PAGE_PAGINATION } from '@constants/nums';
+import useRandomPageNumber from '@utils/generatorRandomNumber.ts';
+import Pagination from '@components/Pagination/Pagination.tsx';
 
-jest.mock('@tanstack/react-query', () => {
-  const originalModule = jest.requireActual('@tanstack/react-query');
-  return {
-    ...originalModule,
-    useQuery: jest.fn(() => ({
-      data: 10, // Предполагаем, что всего 10 страниц
-    })),
-  };
-});
-
-const mockSetActivePage = jest.fn();
+jest.mock('@utils/generatorRandomNumber.ts', () => jest.fn());
 
 describe('Pagination Component', () => {
-  afterEach(() => {
+  const setActivePageMock = jest.fn();
+
+  beforeEach(() => {
     jest.clearAllMocks();
   });
 
-  it('renders pagination with initial pages', () => {
+  it('renders visible pages correctly', () => {
+    (useRandomPageNumber as jest.Mock).mockReturnValue(10); // Mock total pages
     render(
-      <QueryClientProvider client={queryClient}>
-        <Pagination activePage={0} setActivePage={mockSetActivePage} />
-      </QueryClientProvider>,
+      <Pagination activePage={2} setActivePage={setActivePageMock} />,
     );
-    // Проверяем, что первая страница отображается
-    expect(screen.getByText('1')).toBeInTheDocument();
+
+    const pages = screen.getAllByText(/^\d+$/); // Matches only page numbers
+    expect(pages).toHaveLength(MAX_PAGE_PAGINATION); // Ensure max visible pages is respected
+    expect(pages[0]).toHaveTextContent('1'); // First page is 1
+    expect(pages[1]).toHaveTextContent('2'); // Second page is 2
   });
 
-  it('calls setActivePage with correct page number on page click', async () => {
+  it('calls setActivePage when a page is clicked', () => {
+    (useRandomPageNumber as jest.Mock).mockReturnValue(10);
     render(
-      <QueryClientProvider client={queryClient}>
-        <Pagination activePage={0} setActivePage={mockSetActivePage} />
-      </QueryClientProvider>,
+      <Pagination activePage={0} setActivePage={setActivePageMock} />,
     );
 
-    const secondPage = await screen.findByText('2');
+    const page = screen.getByText('3'); // Clickable page number
+    fireEvent.click(page);
 
-    fireEvent.click(secondPage);
-
-    expect(mockSetActivePage).toHaveBeenCalledWith(1);
+    expect(setActivePageMock).toHaveBeenCalledWith(2); // Page numbers are 0-based
   });
 
-  it('disables "prev" when on the first page', () => {
+  it('disables going to previous range when on the first page', () => {
+    (useRandomPageNumber as jest.Mock).mockReturnValue(10);
     render(
-      <QueryClientProvider client={queryClient}>
-        <Pagination activePage={0} setActivePage={mockSetActivePage} />
-      </QueryClientProvider>,
+      <Pagination activePage={0} setActivePage={setActivePageMock} />,
     );
-    // Проверяем, что кнопка "Prev" недоступна
-    const prevButton = screen.queryByAltText('CombinedShapePrev');
-    expect(prevButton).toBeNull();
+
+    const prevButton = screen.getByAltText('CombinedShapePrev');
+    fireEvent.click(prevButton);
+
+    expect(setActivePageMock).not.toHaveBeenCalled();
   });
 
-  it('navigates to the next range when "next" is clicked', () => {
+  it('disables going to next range when on the last page', () => {
+    (useRandomPageNumber as jest.Mock).mockReturnValue(4);
     render(
-      <QueryClientProvider client={queryClient}>
-        <Pagination activePage={0} setActivePage={mockSetActivePage} />
-      </QueryClientProvider>,
+      <Pagination activePage={4} setActivePage={setActivePageMock} />,
     );
 
-    // Кнопка "Next"
     const nextButton = screen.getByAltText('CombinedShapeNext');
-
-    // Нажимаем "Next"
     fireEvent.click(nextButton);
 
-    // Проверяем, что setActivePage не вызывался напрямую, потому что Next меняет диапазон
-    expect(mockSetActivePage).not.toHaveBeenCalled();
+    expect(setActivePageMock).not.toHaveBeenCalled();
+  });
 
-    // Проверяем, что "Next" изменяет диапазон страниц
-    const newRangePage = screen.getByText('5'); // Первая страница следующего диапазона
-    expect(newRangePage).toBeInTheDocument();
+  it('updates range when navigating to a page outside the current range', () => {
+    (useRandomPageNumber as jest.Mock).mockReturnValue(15);
+    render(
+      <Pagination activePage={0} setActivePage={setActivePageMock} />,
+    );
+
+    const nextButton = screen.getByAltText('CombinedShapeNext');
+    fireEvent.click(nextButton); // Navigate to next range
+
+    expect(setActivePageMock).toHaveBeenCalledWith(1);
+  });
+
+  it('highlights the active page', () => {
+    (useRandomPageNumber as jest.Mock).mockReturnValue(10);
+    render(
+      <Pagination activePage={2} setActivePage={setActivePageMock} />,
+    );
+
+    const activePage = screen.getByText('3');
+    expect(activePage).toHaveClass('active'); // Ensure the active class is applied
   });
 });

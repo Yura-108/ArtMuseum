@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Sorting matches snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="sorting"
+  >
+    <span>
+      Sorting:
+    </span>
+    <select
+      id="sortingSelector"
+      name="sortingSelector"
+    >
+      <option
+        value="title"
+      >
+        By title
+      </option>
+      <option
+        value="artist"
+      >
+        By artist
+      </option>
+      <option
+        value="date"
+      >
+        By date
+      </option>
+    </select>
+  </div>
+</DocumentFragment>
+`;
