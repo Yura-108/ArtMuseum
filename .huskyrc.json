@@ -1,0 +1,7 @@
+{
+  "hooks": {
+    "pre-commit": "lint-staged",
+    "pre-push": "npm run test",
+    "commit-msg": "npx commitlint --edit $1"
+  }
+}
