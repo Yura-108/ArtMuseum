@@ -1,7 +1,6 @@
 import { render, screen, fireEvent } from '@testing-library/react';
 import Sorting from '@components/Sorting/Sorting.tsx';
 
-
 describe('Sorting', () => {
   const mockSetSortMethod = jest.fn();
 
@@ -14,8 +13,12 @@ describe('Sorting', () => {
 
     expect(screen.getByText('Sorting:')).toBeInTheDocument();
     expect(screen.getByRole('combobox')).toBeInTheDocument();
-    expect(screen.getByRole('option', { name: 'By title' })).toBeInTheDocument();
-    expect(screen.getByRole('option', { name: 'By artist' })).toBeInTheDocument();
+    expect(
+      screen.getByRole('option', { name: 'By title' }),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByRole('option', { name: 'By artist' }),
+    ).toBeInTheDocument();
     expect(screen.getByRole('option', { name: 'By date' })).toBeInTheDocument();
   });
 
@@ -39,7 +42,9 @@ describe('Sorting', () => {
   });
 
   it('matches snapshot', () => {
-    const { asFragment } = render(<Sorting setSortMethod={mockSetSortMethod} />);
+    const { asFragment } = render(
+      <Sorting setSortMethod={mockSetSortMethod} />,
+    );
     expect(asFragment()).toMatchSnapshot();
   });
 });

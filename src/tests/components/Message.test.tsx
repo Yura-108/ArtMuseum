@@ -14,7 +14,9 @@ describe('Message', () => {
   it('renders correctly with different text', () => {
     render(<Message>Another Message</Message>);
 
-    expect(screen.getByRole('heading', { level: 2 })).toHaveTextContent('Another Message');
+    expect(screen.getByRole('heading', { level: 2 })).toHaveTextContent(
+      'Another Message',
+    );
   });
 
   it('matches snapshot', () => {

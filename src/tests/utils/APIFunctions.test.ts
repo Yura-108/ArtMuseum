@@ -23,30 +23,36 @@ describe('APIFunctions', () => {
         data: [
           {
             id: 1,
-            artist_title: "Artist 1",
-            date_display: "2024-01-01",
+            artist_title: 'Artist 1',
+            date_display: '2024-01-01',
             date_start: 2024,
             date_end: 2024,
-            dimensions: "50x50",
-            image_id: "1",
-            title: "Art",
-            credit_line: "Credit",
-            on_loan_display: "On loan",
-            artist_display: "Artist Display",
-            thumbnail: { alt_text: "Thumbnail" },
+            dimensions: '50x50',
+            image_id: '1',
+            title: 'Art',
+            credit_line: 'Credit',
+            on_loan_display: 'On loan',
+            artist_display: 'Artist Display',
+            thumbnail: { alt_text: 'Thumbnail' },
           },
         ],
       };
       fetchMock.mockResponseOnce(JSON.stringify(mockResponse));
 
       const result = await getPage({ page: 1 });
-      expect(fetchMock).toHaveBeenCalledWith(ARTWORKS_PARAMS({ page: 1, limit: MAX_PAGE_PAGINATION }));
+      expect(fetchMock).toHaveBeenCalledWith(
+        ARTWORKS_PARAMS({ page: 1, limit: MAX_PAGE_PAGINATION }),
+      );
       expect(result).toEqual(mockResponse.data);
     });
 
     it('throws an error when fetch fails', async () => {
-      fetchMock.mockReject(new Error('Failed to fetch Failed to fetch artworks'));
-      await expect(getPage({ page: 1 })).rejects.toThrow('Failed to fetch Failed to fetch artworks');
+      fetchMock.mockReject(
+        new Error('Failed to fetch Failed to fetch artworks'),
+      );
+      await expect(getPage({ page: 1 })).rejects.toThrow(
+        'Failed to fetch Failed to fetch artworks',
+      );
     });
 
     it('throws an error when validation fails', async () => {
@@ -59,20 +65,22 @@ describe('APIFunctions', () => {
 
   describe('getArtWork', () => {
     it('fetches the artwork by ID and parses successfully', async () => {
-      const mockResponse = { data: {
+      const mockResponse = {
+        data: {
           id: 1,
-          artist_title: "Artist 1",
-          date_display: "2024-01-01",
+          artist_title: 'Artist 1',
+          date_display: '2024-01-01',
           date_start: 2024,
           date_end: 2024,
-          dimensions: "50x50",
-          image_id: "1",
-          title: "Art",
-          credit_line: "Credit",
-          on_loan_display: "On loan",
-          artist_display: "Artist Display",
-          thumbnail: { alt_text: "Thumbnail" },
-        }, };
+          dimensions: '50x50',
+          image_id: '1',
+          title: 'Art',
+          credit_line: 'Credit',
+          on_loan_display: 'On loan',
+          artist_display: 'Artist Display',
+          thumbnail: { alt_text: 'Thumbnail' },
+        },
+      };
       fetchMock.mockResponseOnce(JSON.stringify(mockResponse));
 
       const result = await getArtWork(1);
@@ -96,34 +104,38 @@ describe('APIFunctions', () => {
   describe('getArtWorks', () => {
     it('fetches multiple artworks and handles them correctly', async () => {
       const mockResponses = [
-        { data: {
+        {
+          data: {
             id: 1,
-            artist_title: "Artist 1",
-            date_display: "2024-01-01",
+            artist_title: 'Artist 1',
+            date_display: '2024-01-01',
             date_start: 2024,
             date_end: 2024,
-            dimensions: "50x50",
-            image_id: "1",
-            title: "Art",
-            credit_line: "Credit",
-            on_loan_display: "On loan",
-            artist_display: "Artist Display",
-            thumbnail: { alt_text: "Thumbnail" },
-          }, },
-        { data: {
+            dimensions: '50x50',
+            image_id: '1',
+            title: 'Art',
+            credit_line: 'Credit',
+            on_loan_display: 'On loan',
+            artist_display: 'Artist Display',
+            thumbnail: { alt_text: 'Thumbnail' },
+          },
+        },
+        {
+          data: {
             id: 1,
-            artist_title: "Artist 2",
-            date_display: "2024-01-01",
+            artist_title: 'Artist 2',
+            date_display: '2024-01-01',
             date_start: 2024,
             date_end: 2024,
-            dimensions: "60x60",
-            image_id: "2",
-            title: "Art 2",
-            credit_line: "Credit 2",
-            on_loan_display: "On loan",
-            artist_display: "Artist Display",
-            thumbnail: { alt_text: "Thumbnail" },
-          }, },
+            dimensions: '60x60',
+            image_id: '2',
+            title: 'Art 2',
+            credit_line: 'Credit 2',
+            on_loan_display: 'On loan',
+            artist_display: 'Artist Display',
+            thumbnail: { alt_text: 'Thumbnail' },
+          },
+        },
       ];
 
       fetchMock.mockResponses(
@@ -141,7 +153,9 @@ describe('APIFunctions', () => {
         ['', { status: 500 }],
       );
 
-      await expect(getArtWorks([1, 2])).rejects.toThrow('Not all artwork have been fetching');
+      await expect(getArtWorks([1, 2])).rejects.toThrow(
+        'Not all artwork have been fetching',
+      );
     });
   });
 
@@ -151,13 +165,17 @@ describe('APIFunctions', () => {
       fetchMock.mockResponseOnce(JSON.stringify(mockResponse));
 
       const result = await getNumberOfTotalPages();
-      expect(fetchMock).toHaveBeenCalledWith(ARTWORKS_PARAMS({ limit: MAX_PAGE_PAGINATION }));
+      expect(fetchMock).toHaveBeenCalledWith(
+        ARTWORKS_PARAMS({ limit: MAX_PAGE_PAGINATION }),
+      );
       expect(result).toBe(10);
     });
 
     it('throws an error when fetch fails', async () => {
       fetchMock.mockReject(new Error('Failed to fetch artworks'));
-      await expect(getNumberOfTotalPages()).rejects.toThrow('Failed to fetch artworks');
+      await expect(getNumberOfTotalPages()).rejects.toThrow(
+        'Failed to fetch artworks',
+      );
     });
 
     it('throws an error when validation fails', async () => {
@@ -169,10 +187,11 @@ describe('APIFunctions', () => {
   });
 
   describe('getSearch', () => {
-
     it('throws an error when fetch fails', async () => {
       fetchMock.mockReject(new Error('Failed to fetch artworks'));
-      await expect(getSearch({ q: 'query' })).rejects.toThrow('Failed to fetch artworks');
+      await expect(getSearch({ q: 'query' })).rejects.toThrow(
+        'Failed to fetch artworks',
+      );
     });
 
     it('throws an error when validation fails', async () => {

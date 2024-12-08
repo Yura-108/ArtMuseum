@@ -1,5 +1,7 @@
 import { renderHook, act } from '@testing-library/react-hooks';
-import { getFromSessionStorage, setToSessionStorage,
+import {
+  getFromSessionStorage,
+  setToSessionStorage,
 } from '@utils/sessionStorageHelpers.ts';
 import { FAVORITES_STORAGE_KEY } from '@constants/storageKeys.ts';
 import { useFavorites } from '@utils/hooks/useFavorites.ts';
@@ -33,7 +35,9 @@ describe('useFavorites', () => {
     });
 
     expect(result.current.favorites).toEqual([4]);
-    expect(setToSessionStorage).toHaveBeenCalledWith(FAVORITES_STORAGE_KEY, [4]);
+    expect(setToSessionStorage).toHaveBeenCalledWith(FAVORITES_STORAGE_KEY, [
+      4,
+    ]);
   });
 
   it('does not add duplicate items to favorites', () => {
@@ -46,7 +50,9 @@ describe('useFavorites', () => {
     });
 
     expect(result.current.favorites).toEqual([1]);
-    expect(setToSessionStorage).toHaveBeenCalledWith(FAVORITES_STORAGE_KEY, [1]);
+    expect(setToSessionStorage).toHaveBeenCalledWith(FAVORITES_STORAGE_KEY, [
+      1,
+    ]);
   });
 
   it('removes an item from favorites', () => {
@@ -59,7 +65,10 @@ describe('useFavorites', () => {
     });
 
     expect(result.current.favorites).toEqual([1, 3]);
-    expect(setToSessionStorage).toHaveBeenCalledWith(FAVORITES_STORAGE_KEY, [1, 3]);
+    expect(setToSessionStorage).toHaveBeenCalledWith(
+      FAVORITES_STORAGE_KEY,
+      [1, 3],
+    );
   });
 
   it('checks if an item is in favorites', () => {
@@ -80,7 +89,9 @@ describe('useFavorites', () => {
       result.current.addToFavorites(5);
     });
 
-    expect(setToSessionStorage).toHaveBeenCalledWith(FAVORITES_STORAGE_KEY, [5]);
+    expect(setToSessionStorage).toHaveBeenCalledWith(FAVORITES_STORAGE_KEY, [
+      5,
+    ]);
 
     act(() => {
       result.current.removeFromFavorites(5);

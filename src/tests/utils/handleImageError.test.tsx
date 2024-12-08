@@ -5,7 +5,13 @@ import plugImage from '@assets/images/plug.svg';
 
 describe('handleImageError', () => {
   it('replaces image src and alt attributes when an error occurs', () => {
-    render(<img src="broken-link.jpg" alt="Broken image" onError={handleImageError} />);
+    render(
+      <img
+        src="broken-link.jpg"
+        alt="Broken image"
+        onError={handleImageError}
+      />,
+    );
 
     const img = screen.getByAltText('Broken image');
 
@@ -20,7 +26,13 @@ describe('handleImageError', () => {
   });
 
   it('does not modify the image src and alt if no error occurs', () => {
-    render(<img src="valid-image.jpg" alt="Valid image" onError={handleImageError} />);
+    render(
+      <img
+        src="valid-image.jpg"
+        alt="Valid image"
+        onError={handleImageError}
+      />,
+    );
 
     const img = screen.getByAltText('Valid image');
 

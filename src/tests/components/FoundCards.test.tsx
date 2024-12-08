@@ -7,13 +7,19 @@ jest.mock('@tanstack/react-query', () => ({
   useQuery: jest.fn(),
 }));
 
-jest.mock('@components/ContainerSmallCards/ContainerSmallCard.tsx', () => ({ data }: any) => (
-  <div>Rendered {data.length} cards</div>
+jest.mock(
+  '@components/ContainerSmallCards/ContainerSmallCard.tsx',
+  () =>
+    ({ data }: any) => <div>Rendered {data.length} cards</div>,
+);
+jest.mock('@components//Message/Message.tsx', () => ({ children }: any) => (
+  <div>{children}</div>
 ));
-jest.mock('@components//Message/Message.tsx', () => ({ children }: any) => <div>{children}</div>);
-jest.mock('@components//Skeletons/SmallCardContainerSkeleton.tsx', () => ({ length }: any) => (
-  <div>Loading {length} cards...</div>
-));
+jest.mock(
+  '@components//Skeletons/SmallCardContainerSkeleton.tsx',
+  () =>
+    ({ length }: any) => <div>Loading {length} cards...</div>,
+);
 
 describe('FoundCards', () => {
   const mockQueryKey = 'searchQuery';
@@ -31,7 +37,9 @@ describe('FoundCards', () => {
     (useQuery as jest.Mock).mockReturnValue({ data: null, isPending: true });
 
     render(<FoundCards debouncedQuery={mockQueryKey} />);
-    expect(screen.getByText(`Loading ${SEARCH_ITEMS_LIMIT} cards...`)).toBeInTheDocument();
+    expect(
+      screen.getByText(`Loading ${SEARCH_ITEMS_LIMIT} cards...`),
+    ).toBeInTheDocument();
   });
 
   it('renders "Nothing was found!" message if no data is returned', () => {
@@ -42,8 +50,14 @@ describe('FoundCards', () => {
   });
 
   it('renders the container with found cards when data is returned', () => {
-    const mockData = [{ id: 1, title: 'Card 1' }, { id: 2, title: 'Card 2' }];
-    (useQuery as jest.Mock).mockReturnValue({ data: mockData, isPending: false });
+    const mockData = [
+      { id: 1, title: 'Card 1' },
+      { id: 2, title: 'Card 2' },
+    ];
+    (useQuery as jest.Mock).mockReturnValue({
+      data: mockData,
+      isPending: false,
+    });
 
     render(<FoundCards debouncedQuery={mockQueryKey} />);
     expect(screen.getByText('Rendered 2 cards')).toBeInTheDocument();

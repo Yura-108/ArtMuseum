@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react';
 import Title from '@components/Title/Title.tsx';
-import "@testing-library/jest-dom";
+import '@testing-library/jest-dom';
 
 describe('Title', () => {
   it('renders the Title component with children', () => {

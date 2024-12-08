@@ -5,7 +5,6 @@ import { HashRouter, Route, Routes } from 'react-router-dom';
 import routesConfig from '@utils/routesConfig.tsx';
 import { v4 as uuidv4 } from 'uuid';
 
-
 function App() {
   return (
     <HashRouter>

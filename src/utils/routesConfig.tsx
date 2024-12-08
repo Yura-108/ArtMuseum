@@ -3,7 +3,6 @@ import NotFoundComponent from '@pages/404/NotFoundComponent.tsx';
 import Favorites from '@pages/favorites/Favorites.tsx';
 import Artwork from '@pages/artwork/Artwork.tsx';
 
-
 const routesConfig = [
   { path: '/', element: <MainPage /> },
   { path: '/404', element: <NotFoundComponent /> },

@@ -2,7 +2,6 @@ import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import ErrorBoundary from '@components/ErrorBoundary/ErrorBoundary.tsx';
 
-
 describe('ErrorBoundary', () => {
   const FallbackComponent = <h1>Error occurred</h1>;
 
@@ -10,7 +9,7 @@ describe('ErrorBoundary', () => {
     render(
       <ErrorBoundary fallback={FallbackComponent}>
         <div>Child Component</div>
-      </ErrorBoundary>
+      </ErrorBoundary>,
     );
 
     // Проверяем, что дочерний компонент отображается
@@ -25,7 +24,7 @@ describe('ErrorBoundary', () => {
     render(
       <ErrorBoundary fallback={FallbackComponent}>
         <ProblematicComponent />
-      </ErrorBoundary>
+      </ErrorBoundary>,
     );
 
     // Проверяем, что отображается fallback
@@ -40,7 +39,7 @@ describe('ErrorBoundary', () => {
     render(
       <ErrorBoundary>
         <ProblematicComponent />
-      </ErrorBoundary>
+      </ErrorBoundary>,
     );
 
     // Проверяем, что отображается стандартный fallback

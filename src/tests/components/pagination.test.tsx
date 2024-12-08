@@ -1,4 +1,3 @@
-
 import { render, screen, fireEvent } from '@testing-library/react';
 import { MAX_PAGE_PAGINATION } from '@constants/nums';
 import useRandomPageNumber from '@utils/generatorRandomNumber.ts';
@@ -15,9 +14,7 @@ describe('Pagination Component', () => {
 
   it('renders visible pages correctly', () => {
     (useRandomPageNumber as jest.Mock).mockReturnValue(10); // Mock total pages
-    render(
-      <Pagination activePage={2} setActivePage={setActivePageMock} />,
-    );
+    render(<Pagination activePage={2} setActivePage={setActivePageMock} />);
 
     const pages = screen.getAllByText(/^\d+$/); // Matches only page numbers
     expect(pages).toHaveLength(MAX_PAGE_PAGINATION); // Ensure max visible pages is respected
@@ -27,9 +24,7 @@ describe('Pagination Component', () => {
 
   it('calls setActivePage when a page is clicked', () => {
     (useRandomPageNumber as jest.Mock).mockReturnValue(10);
-    render(
-      <Pagination activePage={0} setActivePage={setActivePageMock} />,
-    );
+    render(<Pagination activePage={0} setActivePage={setActivePageMock} />);
 
     const page = screen.getByText('3'); // Clickable page number
     fireEvent.click(page);
@@ -39,9 +34,7 @@ describe('Pagination Component', () => {
 
   it('disables going to previous range when on the first page', () => {
     (useRandomPageNumber as jest.Mock).mockReturnValue(10);
-    render(
-      <Pagination activePage={0} setActivePage={setActivePageMock} />,
-    );
+    render(<Pagination activePage={0} setActivePage={setActivePageMock} />);
 
     const prevButton = screen.getByAltText('CombinedShapePrev');
     fireEvent.click(prevButton);
@@ -51,9 +44,7 @@ describe('Pagination Component', () => {
 
   it('disables going to next range when on the last page', () => {
     (useRandomPageNumber as jest.Mock).mockReturnValue(4);
-    render(
-      <Pagination activePage={4} setActivePage={setActivePageMock} />,
-    );
+    render(<Pagination activePage={4} setActivePage={setActivePageMock} />);
 
     const nextButton = screen.getByAltText('CombinedShapeNext');
     fireEvent.click(nextButton);
@@ -63,9 +54,7 @@ describe('Pagination Component', () => {
 
   it('updates range when navigating to a page outside the current range', () => {
     (useRandomPageNumber as jest.Mock).mockReturnValue(15);
-    render(
-      <Pagination activePage={0} setActivePage={setActivePageMock} />,
-    );
+    render(<Pagination activePage={0} setActivePage={setActivePageMock} />);
 
     const nextButton = screen.getByAltText('CombinedShapeNext');
     fireEvent.click(nextButton); // Navigate to next range
@@ -75,9 +64,7 @@ describe('Pagination Component', () => {
 
   it('highlights the active page', () => {
     (useRandomPageNumber as jest.Mock).mockReturnValue(10);
-    render(
-      <Pagination activePage={2} setActivePage={setActivePageMock} />,
-    );
+    render(<Pagination activePage={2} setActivePage={setActivePageMock} />);
 
     const activePage = screen.getByText('3');
     expect(activePage).toHaveClass('active'); // Ensure the active class is applied
