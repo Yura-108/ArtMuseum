@@ -68,4 +68,4 @@ test('sorts paintings by artist', () => {
   ];
   const sorted = sortArtwork(artwork, 'artist');
   expect(sorted[0].artist_title).toBe('Jane');
-}
+})

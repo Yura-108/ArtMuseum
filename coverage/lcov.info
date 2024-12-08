@@ -1,13 +1,13 @@
 TN:
 SF:src\App.tsx
-FN:9,App
-FN:14,(anonymous_1)
+FN:8,App
+FN:13,(anonymous_1)
 FNF:2
 FNH:0
 FNDA:0,App
 FNDA:0,(anonymous_1)
-DA:10,0
-DA:15,0
+DA:9,0
+DA:14,0
 LF:2
 LH:0
 BRF:0
@@ -749,7 +749,7 @@ TN:
 SF:src\utils\routesConfig.tsx
 FNF:0
 FNH:0
-DA:7,0
+DA:6,0
 LF:1
 LH:0
 BRF:0
