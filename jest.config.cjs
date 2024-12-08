@@ -8,6 +8,8 @@ module.exports = {
     '^@pages(.*)$': '<rootDir>/src/pages$1',
     '^@assets(.*)$': '<rootDir>/src/assets$1',
     '^@constants(.*)$': '<rootDir>/src/constants$1',
+    '^@types(.*)$': '<rootDir>/src/types$1',
+    '^@store(.*)$': '<rootDir>/src/store$1',
   },
   globals: {
     __PATH_PREFIX__: '',

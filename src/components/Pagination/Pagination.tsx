@@ -1,9 +1,10 @@
 import './Pagination.scss';
 import CombinedShape from '@assets/images/CombinedShape.svg';
 import React, { useState } from 'react';
-import { PaginationProps } from '@types/componentsPropsTypes.ts';
 import useRandomPageNumber from '@utils/generatorRandomNumber.ts';
 import { MAX_PAGE_PAGINATION } from '@constants/nums.ts';
+import { v4 as uuidv4 } from 'uuid';
+import { PaginationProps } from '@types/componentsPropsTypes.ts';
 
 const Pagination: React.FC<PaginationProps> = ({
   activePage,
@@ -28,7 +29,7 @@ const Pagination: React.FC<PaginationProps> = ({
 
     setActivePage(nextPage);
   };
-  console.log(activePage);
+
   const handlePrevRange = () => {
     const prevPage = activePage - 1;
     if (prevPage < 0) return;
@@ -48,7 +49,7 @@ const Pagination: React.FC<PaginationProps> = ({
         </div>
         {visiblePages.map((page) => (
           <div
-            key={page}
+            key={uuidv4()}
             onClick={() => setActivePage(page)}
             className={`page ${activePage === page ? 'active' : ''}`}
           >

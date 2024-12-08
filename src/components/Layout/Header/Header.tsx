@@ -22,13 +22,15 @@ export default function Header() {
           src={burgerIcon}
           alt="burgerIcon"
         />
-        <Link
-          to={'/favorites'}
-          className={`burgerMenu ${isOpen ? 'open' : ''}`}
-        >
-          <img src={favoriteIcon} alt="favorite" />
-          <span>Your favorites</span>
-        </Link>
+        <div className={`burgerMenu ${isOpen ? 'open' : ''}`}>
+          <Link to={'/'}>
+            <span>Home page</span>
+          </Link>
+          <Link to={'/favorites'}>
+            <img src={favoriteIcon} alt="favorite" />
+            <span>Your favorites</span>
+          </Link>
+        </div>
       </div>
     </header>
   );

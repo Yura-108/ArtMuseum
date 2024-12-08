@@ -1,0 +1,36 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Favorites matches snapshot 1`] = `
+<DocumentFragment>
+  <section>
+    <h1>
+      here are your 
+      <br />
+      <div>
+        <img
+          alt="favorite icon"
+        />
+         
+        <span>
+          Favorites
+        </span>
+      </div>
+    </h1>
+    <div
+      class="containerTitle"
+    >
+      <h4>
+        Saved by you
+      </h4>
+      <h2>
+        Your favorites list
+      </h2>
+    </div>
+    <div>
+      <div>
+        Rendered 1 favorite cards
+      </div>
+    </div>
+  </section>
+</DocumentFragment>
+`;
